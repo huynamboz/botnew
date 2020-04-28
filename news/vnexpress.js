@@ -24,7 +24,7 @@ function getAllStr(str, start, end) {
 }
 
 function VnExpress() {
-    const linkRSS = 'http://game4v.com/phim-truyen/feed';
+    const linkRSS = 'https://gamek.vn/home.rss';
     const minWord = 30;
     const maxWord = 170;
 
@@ -33,7 +33,7 @@ function VnExpress() {
         let feed = await parser.parseURL(linkRSS);
         let news = [];
         for (const rss of feed.items) {
-            if(rss.link.includes('http://game4v.com')) { //not get news from english/photo page
+            if(rss.link.includes('https://gamek.vn')) { //not get news from english/photo page
                 let imgLink = getStr(rss.content, '<img src="','"');
                 if (imgLink && !imgLink.includes('gif')) {
                     let response = await fetch(rss.link);
